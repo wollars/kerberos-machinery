@@ -40,6 +40,7 @@
         machinery/expositor/HullExpositor.cpp
         machinery/heuristic/Sequence.cpp
         machinery/heuristic/Counter.cpp
+            machinery/heuristic/HOGCounter.cpp
         machinery/io/IoDisk.cpp
         machinery/io/IoVideo.cpp
         machinery/io/IoTCP.cpp

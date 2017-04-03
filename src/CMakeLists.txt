@@ -39,7 +39,7 @@
 
     if(${PACKAGE})
         if(APPLE)
-            SET(KERBEROS_FACTORY_ENTITIES_TEMP ${KERBEROS_FACTORY_ENTITIES_TEMP} ${CONFIG_FILES} ${LOG_FILE} ${CMAKE_CURRENT_SOURCE_DIR}/kerberosio.icns)
+            SET(KERBEROS_FACTORY_ENTITIES_TEMP ${KERBEROS_FACTORY_ENTITIES_TEMP} ${CONFIG_FILES} ${LOG_FILE} ${CMAKE_CURRENT_SOURCE_DIR}/kerberosio.icns ../include/kerberos/machinery/heuristic/HOGCounter.h kerberos/machinery/heuristic/HOGCounter.cpp)
             add_executable(kerberosio MACOSX_BUNDLE main.cpp ${KERBEROS_FACTORY_ENTITIES_TEMP})
         endif()
         IF("${CMAKE_SYSTEM}" MATCHES "Linux")
@@ -119,7 +119,7 @@
     # install binary
     INSTALL(TARGETS kerberosio
     BUNDLE DESTINATION . COMPONENT Runtime
-    RUNTIME DESTINATION /usr/bin COMPONENT Runtime)
+    RUNTIME DESTINATION /usr/local/bin COMPONENT Runtime)
 
 # ----------------------------------------
 # CPack

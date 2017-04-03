@@ -27,7 +27,7 @@ ExternalProject_Add(opencv
     -DBUILD_opencv_calib3d=OFF
     -DBUILD_opencv_features2d=ON
     -DBUILD_opencv_java=OFF
-    -DBUILD_opencv_objdetect=OFF
+    -DBUILD_opencv_objdetect=ON
     -DBUILD_opencv_photo=OFF
     -DBUILD_opencv_nonfree=OFF
     -DBUILD_opencv_ocl=OFF
