@@ -40,12 +40,12 @@ namespace kerberos
         setMaxDistance(std::atoi(settings.at("heuristics.Counter.maxDistance").c_str()));
         setMinArea(std::atoi(settings.at("heuristics.Counter.minArea").c_str()));
         setOnlyTrueWhenCounted((settings.at("heuristics.Counter.onlyTrueWhenCounted") == "true"));
-        setWinStrideX((settings.at("heuristics.HOGCounter.winStrideX").c_str()));
-        setWinStrideY((settings.at("heuristics.HOGCounter.winStrideY").c_str()));
-        setPaddingX((settings.at("heuristics.HOGCounter.paddingX").c_str()));
-        setPaddingY((settings.at("heuristics.HOGCounter.paddingY").c_str()));
-        setFinalThreshold((settings.at("heuristics.HOGCounter.finalThreshold").c_str()));
-        setScale((settings.at("heuristics.HOGCounter.scale").c_str()));
+        setWinStrideX(std::atoi(settings.at("heuristics.HOGCounter.winStrideX").c_str()));
+        setWinStrideY(std::atoi(settings.at("heuristics.HOGCounter.winStrideY").c_str()));
+        setPaddingX(std::atoi(settings.at("heuristics.HOGCounter.paddingX").c_str()));
+        setPaddingY(std::atoi(settings.at("heuristics.HOGCounter.paddingY").c_str()));
+        setFinalThreshold(std::atof(settings.at("heuristics.HOGCounter.finalThreshold").c_str()));
+        setScale(std::atof(settings.at("heuristics.HOGCounter.scale").c_str()));
     }
 
     bool HOGCounter::intersection(cv::Point2f o1, cv::Point2f p1, cv::Point2f o2, cv::Point2f p2, cv::Point2f &r)
@@ -98,20 +98,20 @@ namespace kerberos
 //        cv::findContours(image.getImage(), contours, hierarchy, CV_RETR_TREE, CV_CHAIN_APPROX_NONE);
         std::vector<cv::Rect> found, found_filtered;
         cv::HOGDescriptor hog;
-        hog.setSVMDetector(HOGDescriptor::getDefaultPeopleDetector());
+        hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
 
         hog.detectMultiScale(image.getImage(),
                              found,
                              0,
-                             Size(m_winStrideX,m_winStrideY),
-                             Size(m_paddingX,m_paddingY),
+                             cv::Size(m_winStrideX,m_winStrideY),
+                             cv::Size(m_paddingX,m_paddingY),
                              m_scale,
                              m_finalThreshold);
 
         size_t i, j;
         for (i=0; i<found.size(); i++)
         {
-            Rect r = found[i];
+            cv::Rect r = found[i];
             for (j=0; j<found.size(); j++)
                 if (j!=i && (r & found[j]) == r)
                     break;
@@ -121,12 +121,12 @@ namespace kerberos
 
         for (i=0; i<found_filtered.size(); i++)
         {
-            Rect r = found_filtered[i];
+            cv::Rect r = found_filtered[i];
             r.x += cvRound(r.width*0.1);
             r.width = cvRound(r.width*0.8);
             r.y += cvRound(r.height*0.07);
             r.height = cvRound(r.height*0.8);
-            rectangle(img, r.tl(), r.br(), Scalar(0,255,0), 3);
+            cv::rectangle(img, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
         }
 
         int numberOfContours= 0;

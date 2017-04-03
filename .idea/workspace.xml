@@ -51,21 +51,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df49c851-c8a2-48bd-9afc-be0de473afd8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/googletest.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/googletest.dir/progress.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Kerberos.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/Kerberos.cbp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/DependInfo.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/build.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/cmake_clean.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/cmake_clean.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/link.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/src/CMakeFiles/kerberosio.dir/progress.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/src/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/src/Makefile" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/DependInfo.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/build.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/cmake_clean.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/cmake_clean.cmake" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/link.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/progress.make" afterPath="$PROJECT_DIR$/cmake-build-debug/test/CMakeFiles/kerberos-test.dir/progress.make" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/test/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/test/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/docker/Dockerfile" afterPath="$PROJECT_DIR$/docker/Dockerfile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp" afterPath="$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -81,11 +68,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Counter.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Counter.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/Counter.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="112" column="12" lean-forward="true" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
+            <state relative-caret-position="210">
+              <caret line="94" column="9" lean-forward="true" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HOGCounter.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-930">
+              <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HOGCounter.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/include/kerberos/machinery/heuristic/HOGCounter.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="435">
+              <caret line="86" column="47" lean-forward="true" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
               <folding />
             </state>
           </provider>
@@ -245,6 +252,72 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kerberos" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="machinery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kerberos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kerberos" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="machinery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kerberos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="machinery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kerberos" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="machinery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kerberos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="machinery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heuristic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -762,12 +835,12 @@
       <workItem from="1490969157900" duration="5767000" />
       <workItem from="1491238232534" duration="1184000" />
       <workItem from="1491243024746" duration="3411000" />
-      <workItem from="1491249345117" duration="24000" />
+      <workItem from="1491249345117" duration="888000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14641000" />
+    <option name="totallyTimeSpent" value="15505000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1089,8 +1162,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/Counter.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="112" column="12" lean-forward="true" selection-start-line="112" selection-start-column="12" selection-end-line="112" selection-end-column="12" />
+        <state relative-caret-position="210">
+          <caret line="94" column="9" lean-forward="true" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
           <folding />
         </state>
       </provider>
@@ -1135,7 +1208,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/include/kerberos/machinery/heuristic/HOGCounter.h" />
     <entry file="file://$PROJECT_DIR$/config/heuristic.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1144,6 +1216,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp" />
+    <entry file="file://$PROJECT_DIR$/include/kerberos/machinery/heuristic/HOGCounter.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="86" column="47" lean-forward="true" selection-start-line="86" selection-start-column="47" selection-end-line="86" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-930">
+          <caret line="32" column="34" lean-forward="true" selection-start-line="32" selection-start-column="34" selection-end-line="32" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
 </project>

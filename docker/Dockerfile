@@ -19,7 +19,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ############################
 # Clone and build machinery
 
-RUN	git clone https://github.com/kerberos-io/machinery /tmp/machinery && \
+RUN	git clone https://github.com/wollars/kerberos-machinery.git /tmp/machinery && \
     cd /tmp/machinery && git checkout ${APP_ENV} && \
     mkdir build && cd build && \
     cmake .. && make && make check && make install && \
