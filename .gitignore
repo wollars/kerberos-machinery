@@ -31,7 +31,7 @@
 bin/*
 build/*
 build_xcode/*
-config/*
+#config/*
 ide/*
 test/bin/*
 cmake-build-debug/*

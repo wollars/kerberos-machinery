@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<heuristics>
+
+	<Sequence>
+	    <minimumChanges type="number">20</minimumChanges>
+	    <minimumDuration type="number">2</minimumDuration>
+        <noMotionDelayTime type="number">1000</noMotionDelayTime>
+	</Sequence>
+    
+	<Counter>
+	    <appearance type="number">3</appearance>
+	    <maxDistance type="number">140</maxDistance>
+	    <minArea type="number">200</minArea>
+	    <onlyTrueWhenCounted type="bool">true</onlyTrueWhenCounted>
+	    <minimumChanges type="number">20</minimumChanges>
+        <noMotionDelayTime type="number">100</noMotionDelayTime>
+		<markers type="twolines">100,100|100,200|200,100|200,200</markers>
+	</Counter>
+
+	<HOGCounter>
+		<winStrideX type="number">16</winStrideX>
+		<winStrideY type="number">16</winStrideY>
+		<paddingX type="number">32</paddingX>
+		<paddingY type="number">32</paddingY>
+		<scale type="number">1.059</scale>
+		<finalThreshold type="number">1.5</finalThreshold>
+	</HOGCounter>
+
+</heuristics>

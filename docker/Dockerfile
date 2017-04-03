@@ -22,10 +22,11 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN	git clone https://github.com/wollars/kerberos-machinery.git /tmp/machinery && \
     cd /tmp/machinery && git checkout ${APP_ENV} && \
     mkdir build && cd build && \
-    cmake .. && make && make check && make install && \
-    rm -rf /tmp/machinery && \
-    chown -Rf www-data.www-data /etc/opt/kerberosio && \
-    chmod -Rf 777 /etc/opt/kerberosio/config
+    cmake .. && make && make check && make install
+
+RUN rm -rf /tmp/machinery
+RUN chown -Rf www-data.www-data /etc/opt/kerberosio
+
 
 #############################################
 # Make config and capture directories visible
