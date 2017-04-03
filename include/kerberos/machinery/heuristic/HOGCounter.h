@@ -1,5 +1,5 @@
 //
-//  Class: Counter
+//  Class: HOGCounter
 //  Description: The counter heuristic will check if a valid in-out (out-in)
 //               happened. The detections in and out are kept in memory.
 //               E.g. total people in the building.
@@ -17,51 +17,50 @@
 //
 /////////////////////////////////////////////////////
 
-#ifndef __PeopleCounter_H_INCLUDED__   // if Counter.h hasn't been included yet...
-#define __PeopleCounter_H_INCLUDED__   // #define this so the compiler knows it has been included
+#ifndef __HOGCounter_H_INCLUDED__   // if Counter.h hasn't been included yet...
+#define __HOGCounter_H_INCLUDED__   // #define this so the compiler knows it has been included
 
 #include "machinery/heuristic/Heuristic.h"
-#include "machinery/heuristic/Counter.h"
 #include "opencv2/objdetect/objdetect.hpp"
 
 namespace kerberos
 {
-    char CounterName[] = "HOGCounter";
+    char HOGCounterName[] = "HOGCounter";
 
-//    class Feature
-//    {
-//    private:
-//        int x;
-//        int y;
-//        int area;
-//        int appearance;
-//
-//    public:
-//        Feature(int x, int y, int area, int appearance):x(x), y(y), area(area), appearance(appearance){};
-//        int getX(){return x;}
-//        int getY(){return y;}
-//        int getArea(){return area;}
-//        int getAppearance(){return appearance;}
-//
-//        double distance(Feature f)
-//        {
-//            return sqrt((f.x - x) * (f.x - x) + (f.y - y) * (f.y - y));
-//        }
-//
-//        double areaDistance(Feature f)
-//        {
-//            return sqrt((f.area - area) * (f.area - area));
-//        }
-//
-//        void decreaseAppearance()
-//        {
-//            appearance--;
-//        }
-//    };
-//
-//    enum Direction{left, right, top, bottom, parallell};
+    class Feature
+    {
+    private:
+        int x;
+        int y;
+        int area;
+        int appearance;
 
-    class HOGCounter : public HeuristicCreator<CounterName, HOGCounter>
+    public:
+        Feature(int x, int y, int area, int appearance):x(x), y(y), area(area), appearance(appearance){};
+        int getX(){return x;}
+        int getY(){return y;}
+        int getArea(){return area;}
+        int getAppearance(){return appearance;}
+
+        double distance(Feature f)
+        {
+            return sqrt((f.x - x) * (f.x - x) + (f.y - y) * (f.y - y));
+        }
+
+        double areaDistance(Feature f)
+        {
+            return sqrt((f.area - area) * (f.area - area));
+        }
+
+        void decreaseAppearance()
+        {
+            appearance--;
+        }
+    };
+
+    enum Direction{left, right, top, bottom, parallell};
+
+    class HOGCounter : public HeuristicCreator<HOGCounterName, HOGCounter>
     {
     private:
         std::vector<cv::Point> m_in;
