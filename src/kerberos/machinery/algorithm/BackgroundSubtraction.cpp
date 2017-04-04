@@ -11,12 +11,13 @@ namespace kerberos
         setDilateKernel(dilate, dilate);
 
         m_subtractor = cv::createBackgroundSubtractorMOG2();
-        
+
         std::string shadows = settings.at("algorithms.BackgroundSubtraction.shadows");
         int history = std::atoi(settings.at("algorithms.BackgroundSubtraction.history").c_str());
         int nmixtures = std::atoi(settings.at("algorithms.BackgroundSubtraction.nmixtures").c_str());
         double ratio = std::atof(settings.at("algorithms.BackgroundSubtraction.ratio").c_str());
         int threshold = std::atoi(settings.at("algorithms.BackgroundSubtraction.threshold").c_str());
+        
         m_subtractor->setDetectShadows((shadows == "true"));
         m_subtractor->setHistory(history);
         m_subtractor->setNMixtures(nmixtures);
@@ -30,6 +31,7 @@ namespace kerberos
 
     void BackgroundSubtraction::initialize(ImageVector & images)
     {
+        LINFO << "Number of images in subtractor: " << images.size();
         for(int i = 0; i < images.size()-1; i++)
         {
             m_subtractor->apply(images[i]->getImage(), m_backgroud.getImage());

@@ -100,8 +100,9 @@ namespace kerberos
         std::vector<cv::Rect> found, found_filtered;
         cv::HOGDescriptor hog;
         hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
+        cv::Mat evalImage = images[2]->getImage();
 
-        hog.detectMultiScale(image.getImage(),
+        hog.detectMultiScale(evalImage,
                              found,
                              0,
                              cv::Size(m_winStrideX,m_winStrideY),
@@ -122,15 +123,15 @@ namespace kerberos
             }
         }
 
-        for (i=0; i<found_filtered.size(); i++)
-        {
-            cv::Rect r = found_filtered[i];
-            r.x += cvRound(r.width*0.1);
-            r.width = cvRound(r.width*0.8);
-            r.y += cvRound(r.height*0.07);
-            r.height = cvRound(r.height*0.8);
-            cv::rectangle(img, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
-        }
+//        for (i=0; i<found_filtered.size(); i++)
+//        {
+//            cv::Rect r = found_filtered[i];
+//            r.x += cvRound(r.width*0.1);
+//            r.width = cvRound(r.width*0.8);
+//            r.y += cvRound(r.height*0.07);
+//            r.height = cvRound(r.height*0.8);
+//            cv::rectangle(evalImage, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
+//        }
 
         LINFO << "Number of rects in HOG: " << found_filtered.size();
 

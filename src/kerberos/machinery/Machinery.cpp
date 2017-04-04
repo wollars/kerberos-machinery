@@ -119,6 +119,7 @@ namespace kerberos
     {
         if(m_algorithm && m_expositor && m_heuristic)
         {
+            cv::Mat img = images[2]->getImage();
             Image evaluation = m_algorithm->evaluate(images, data);
             m_expositor->calculate(evaluation, data);
             return m_heuristic->isValid(evaluation, images, data);
