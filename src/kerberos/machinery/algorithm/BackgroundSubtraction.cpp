@@ -17,7 +17,6 @@ namespace kerberos
         int nmixtures = std::atoi(settings.at("algorithms.BackgroundSubtraction.nmixtures").c_str());
         double ratio = std::atof(settings.at("algorithms.BackgroundSubtraction.ratio").c_str());
         int threshold = std::atoi(settings.at("algorithms.BackgroundSubtraction.threshold").c_str());
-        
         m_subtractor->setDetectShadows((shadows == "true"));
         m_subtractor->setHistory(history);
         m_subtractor->setNMixtures(nmixtures);

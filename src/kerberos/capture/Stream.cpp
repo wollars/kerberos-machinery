@@ -163,7 +163,7 @@ namespace kerberos
             std::vector<cv::Rect> found, found_filtered;
             cv::HOGDescriptor hog;
             hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
-            hog.detectMultiScale(frame, found, 0, cv::Size(8,8), cv::Size(16,16), 1.059, 1.5);
+            hog.detectMultiScale(frame, found, 0, cv::Size(16,16), cv::Size(32,32), 1.059, 1.5);
             size_t i, j;
             for (i=0; i<found.size(); i++)
             {
