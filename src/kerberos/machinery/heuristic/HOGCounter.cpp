@@ -125,9 +125,9 @@ namespace kerberos
 
         LINFO << "Number of rects in HOG: " << found_filtered.size();
 //
-//        JSON::AllocatorType& allocator = data.GetAllocator();
-//        data.AddMember("incoming", found_filtered.size(), allocator);
-//        data.AddMember("outgoing", found_filtered.size(), allocator);
+        JSON::AllocatorType& allocator = data.GetAllocator();
+        data.AddMember("incoming", found_filtered.size(), allocator);
+        data.AddMember("outgoing", found_filtered.size(), allocator);
 
         return found_filtered.size() > 0;
 
