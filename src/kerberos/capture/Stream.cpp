@@ -1,4 +1,5 @@
 #include "capture/Stream.h"
+#include "opencv2/objdetect/objdetect.hpp"
 
 namespace kerberos
 {
@@ -158,6 +159,29 @@ namespace kerberos
             
             // Encode the image
             cv::Mat frame = image.getImage();
+
+            std::vector<cv::Rect> found, found_filtered;
+            cv::HOGDescriptor hog;
+            hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
+            hog.detectMultiScale(frame, found, 0, cv::Size(16,16), cv::Size(32,32), 1.059, 1.5);
+            size_t i, j;
+            for (i=0; i<found.size(); i++)
+            {
+                cv::Rect r = found[i];
+                for (j=0; j<found.size(); j++)
+                    if (j!=i && (r & found[j]) == r)
+                        break;
+                if (j== found.size()) {
+                    found_filtered.push_back(r);
+                    cv::Rect r = found_filtered[i];
+                    r.x += cvRound(r.width*0.1);
+                    r.width = cvRound(r.width*0.8);
+                    r.y += cvRound(r.height*0.07);
+                    r.height = cvRound(r.height*0.8);
+                    cv::rectangle(frame, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
+                }
+            }
+
             if(frame.cols > 0 && frame.rows > 0)
             {
                 std::vector<uchar>outbuf;
