@@ -50,6 +50,7 @@ namespace kerberos
 
     bool HOGCounter::intersection(cv::Point2f o1, cv::Point2f p1, cv::Point2f o2, cv::Point2f p2, cv::Point2f &r)
     {
+        LINFO << "checking intersection: o1: " << o1 << " o2: " << o2 << " p1: " << p1 << " p2: " << p2;
         cv::Point2f x = o2 - o1;
         cv::Point2f d1 = p1 - o1;
         cv::Point2f d2 = p2 - o2;
@@ -131,6 +132,8 @@ namespace kerberos
             cv::rectangle(img, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
         }
 
+        LINFO << "Number of rects in HOG: " << found_filtered.size();
+
         int numberOfContours= 0;
         for(int i = 0; i < m_features.size(); i++)
         {
@@ -208,6 +211,7 @@ namespace kerberos
         }
 
         // Check existing tracks if they crossed the line
+        LINFO << "Number of features in HOG: " << m_features.size();
         it = m_features.begin();
         while(it != m_features.end())
         {
