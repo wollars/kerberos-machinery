@@ -100,14 +100,14 @@ namespace kerberos
         cv::HOGDescriptor hog;
         hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
 
-//        hog.detectMultiScale(image.getImage(),
-//                             found,
-//                             0,
-//                             cv::Size(m_winStrideX,m_winStrideY),
-//                             cv::Size(m_paddingX,m_paddingY),
-//                             m_scale,
-//                             m_finalThreshold);
-        hog.detectMultiScale(image.getImage(), found, 0, cv::Size(16,16), cv::Size(32,32), 1.059, 1.5);
+        hog.detectMultiScale(image.getImage(),
+                             found,
+                             0,
+                             cv::Size(m_winStrideX,m_winStrideY),
+                             cv::Size(m_paddingX,m_paddingY),
+                             m_scale,
+                             m_finalThreshold);
+//        hog.detectMultiScale(image.getImage(), found, 0, cv::Size(16,16), cv::Size(32,32), 1.059, 1.5);
 
         size_t i, j;
         for (i=0; i<found.size(); i++)
@@ -118,24 +118,18 @@ namespace kerberos
                     break;
             if (j== found.size()) {
                 found_filtered.push_back(r);
-                cv::Rect r = found_filtered[i];
-                r.x += cvRound(r.width*0.1);
-                r.width = cvRound(r.width*0.8);
-                r.y += cvRound(r.height*0.07);
-                r.height = cvRound(r.height*0.8);
-                cv::rectangle(img, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
             }
         }
 
-//        for (i=0; i<found_filtered.size(); i++)
-//        {
-//            cv::Rect r = found_filtered[i];
-//            r.x += cvRound(r.width*0.1);
-//            r.width = cvRound(r.width*0.8);
-//            r.y += cvRound(r.height*0.07);
-//            r.height = cvRound(r.height*0.8);
-//            cv::rectangle(img, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
-//        }
+        for (i=0; i<found_filtered.size(); i++)
+        {
+            cv::Rect r = found_filtered[i];
+            r.x += cvRound(r.width*0.1);
+            r.width = cvRound(r.width*0.8);
+            r.y += cvRound(r.height*0.07);
+            r.height = cvRound(r.height*0.8);
+            cv::rectangle(img, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
+        }
 
         int numberOfContours= 0;
         for(int i = 0; i < m_features.size(); i++)

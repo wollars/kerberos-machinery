@@ -163,7 +163,7 @@ namespace kerberos
             std::vector<cv::Rect> found, found_filtered;
             cv::HOGDescriptor hog;
             hog.setSVMDetector(cv::HOGDescriptor::getDefaultPeopleDetector());
-            hog.detectMultiScale(frame, found, 0, cv::Size(16,16), cv::Size(32,32), 1.059, 1.5);
+            hog.detectMultiScale(frame, found, 0, cv::Size(8,8), cv::Size(16,16), 1.059, 1.5);
             size_t i, j;
             for (i=0; i<found.size(); i++)
             {
@@ -173,13 +173,17 @@ namespace kerberos
                         break;
                 if (j== found.size()) {
                     found_filtered.push_back(r);
-                    cv::Rect r = found_filtered[i];
-                    r.x += cvRound(r.width*0.1);
-                    r.width = cvRound(r.width*0.8);
-                    r.y += cvRound(r.height*0.07);
-                    r.height = cvRound(r.height*0.8);
-                    cv::rectangle(frame, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
                 }
+            }
+
+            for (i=0; i<found_filtered.size(); i++)
+            {
+                cv::Rect r = found_filtered[i];
+                r.x += cvRound(r.width*0.1);
+                r.width = cvRound(r.width*0.8);
+                r.y += cvRound(r.height*0.07);
+                r.height = cvRound(r.height*0.8);
+                rectangle(frame, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
             }
 
             if(frame.cols > 0 && frame.rows > 0)
