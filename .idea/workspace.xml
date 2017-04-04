@@ -80,8 +80,8 @@
       <file leaf-file-name="HOGCounter.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2260">
-              <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
+            <state relative-caret-position="350">
+              <caret line="125" column="69" lean-forward="true" selection-start-line="125" selection-start-column="69" selection-end-line="125" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -100,7 +100,7 @@
       <file leaf-file-name="Stream.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kerberos/capture/Stream.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
+            <state relative-caret-position="962">
               <caret line="165" column="96" lean-forward="true" selection-start-line="165" selection-start-column="96" selection-end-line="165" selection-end-column="96" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
@@ -924,12 +924,12 @@
       <workItem from="1490969157900" duration="5767000" />
       <workItem from="1491238232534" duration="1184000" />
       <workItem from="1491243024746" duration="3411000" />
-      <workItem from="1491249345117" duration="17366000" />
+      <workItem from="1491249345117" duration="19991000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31983000" />
+    <option name="totallyTimeSpent" value="34608000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1339,7 +1339,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kerberos/capture/Stream.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
+        <state relative-caret-position="962">
           <caret line="165" column="96" lean-forward="true" selection-start-line="165" selection-start-column="96" selection-end-line="165" selection-end-column="96" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
@@ -1349,8 +1349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2260">
-          <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
+        <state relative-caret-position="350">
+          <caret line="125" column="69" lean-forward="true" selection-start-line="125" selection-start-column="69" selection-end-line="125" selection-end-column="69" />
           <folding />
         </state>
       </provider>

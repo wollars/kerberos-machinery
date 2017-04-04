@@ -129,6 +129,7 @@ namespace kerberos
 //        data.AddMember("incoming", found_filtered.size(), allocator);
 //        data.AddMember("outgoing", found_filtered.size(), allocator);
 
+        return found_filtered.size() > 0;
 
 //        for (i=0; i<found_filtered.size(); i++)
 //        {
@@ -140,208 +141,208 @@ namespace kerberos
 //            cv::rectangle(evalImage, r.tl(), r.br(), cv::Scalar(0,255,0), 3);
 //        }
 
-        int numberOfContours= 0;
-        for(int i = 0; i < m_features.size(); i++)
-        {
-            int mostRecent = m_features[i].size() - 1;
-            m_features[i][mostRecent].decreaseAppearance();
-        }
-
-        // Find new tracks
-        if(found_filtered.size() > 0)
-        {
-            for( int i = 0; i< found_filtered.size(); i++ )
-            {
-//                cv::Moments moments = cv::moments(contours[i]);
-//                int x = moments.m10/moments.m00;
-//                int y = moments.m01/moments.m00;
-//                int area = cv::contourArea(contours[i]);
-                cv::Point center_of_rect = (found_filtered[i].br() + found_filtered[i].tl())*0.5;
-                int x = center_of_rect.x;
-                int y = center_of_rect.y;
-                int area = found_filtered[i].area();
-
-                if(area < m_minArea) continue;
-
-                Feature current(x, y, area, m_appearance);
-                int best = -1;
-                double bestValue = 99999999;
-                double bestArea = 99999999;
-
-                for(int j = 0; j < m_features.size(); j++)
-                {
-                    int mostRecent = m_features[j].size() - 1;
-                    double distance = current.distance(m_features[j][mostRecent]);
-                    double areaDistance = current.areaDistance(m_features[j][mostRecent]);
-
-                    if(distance < m_maxDistance && distance < bestValue + m_maxDistance/2)
-                    {
-                        if(areaDistance < bestArea)
-                        {
-                            best = j;
-                            bestValue = distance;
-                        }
-                    }
-                }
-
-                if(best == -1)
-                {
-                    std::vector<Feature> tracking;
-                    tracking.push_back(current);
-                    m_features.push_back(tracking);
-                }
-                else
-                {
-                    m_features[best].push_back(current);
-                }
-
-                numberOfContours++;
-            }
-        }
-
-        // Remove old tracks
-        std::vector<std::vector<Feature> >::iterator it = m_features.begin();
-        while(it != m_features.end())
-        {
-            Feature & back = it->back();
-            back.decreaseAppearance();
-
-            if(back.getAppearance() < 0)
-            {
-                it = m_features.erase(it);
-            }
-            else
-            {
-                it++;
-            }
-        }
-
-        // Check existing tracks if they crossed the line
-        LINFO << "Number of features in HOG: " << m_features.size();
-        it = m_features.begin();
-        while(it != m_features.end())
-        {
-            if(it->size() > 1)
-            {
-                for(int j = 1; j < it->size(); j++)
-                {
-                    cv::Point2f prev((*it)[j-1].getX(),(*it)[j-1].getY());
-                    cv::Point2f curr((*it)[j].getX(),(*it)[j].getY());
-                }
-
-                // Check if cross line
-                cv::Point2f start((*it)[0].getX(),(*it)[0].getY());
-                cv::Point2f end((*it)[it->size()-1].getX(),(*it)[it->size()-1].getY());
-
-                // Check if interset in line
-                cv::Point2f intersectionPointOutgoing;
-                bool inLine = false;
-                if(intersection(start, end, outTop, outBottom, intersectionPointOutgoing))
-                {
-                    inLine = true;
-                }
-                // Check if interset out line
-                cv::Point2f intersectionPointIncoming;
-                bool outLine = false;
-                if(intersection(start, end, inTop, inBottom, intersectionPointIncoming))
-                {
-                    outLine = true;
-                }
-
-                // Check if interesected both
-                Direction xDirection = parallell;
-                Direction yDirection = parallell;
-
-                if(inLine && outLine)
-                {
-                    // What is the direction (incoming our outgoing?)
-                    if(start.x - end.x < 0)
-                    {
-                        xDirection = right;
-                    }
-                    else if(start.x - end.x > 0)
-                    {
-                        xDirection = left;
-                    }
-                    if(start.y - end.y < 0)
-                    {
-                        yDirection = bottom;
-                    }
-                    else if(start.y - end.y > 0)
-                    {
-                        yDirection = top;
-                    }
-
-                    // Check which intersection point comes first
-                    if(xDirection != parallell)
-                    {
-                        if(xDirection == left)
-                        {
-                            // Check which intersection point is most right;
-                            if(intersectionPointIncoming.x > intersectionPointOutgoing.x)
-                            {
-                                incoming++;
-                            }
-                            else
-                            {
-                                outgoing++;
-                            }
-                        }
-                        else if(xDirection == right)
-                        {
-                            // Check which intersection point is most right;
-                            if(intersectionPointIncoming.x < intersectionPointOutgoing.x)
-                            {
-                                incoming++;
-                            }
-                            else
-                            {
-                                outgoing++;
-                            }
-                        }
-                    }
-                    else
-                    {
-
-                    }
-
-                    it = m_features.erase(it);
-                }
-                else
-                {
-                    it++;
-                }
-            }
-            else
-            {
-                it++;
-            }
-        }
-
-        if(numberOfChanges >= m_minimumChanges)
-        {
-            JSON::AllocatorType& allocator = data.GetAllocator();
-            data.AddMember("incoming", incoming, allocator);
-            data.AddMember("outgoing", outgoing, allocator);
-
-            if(m_onlyTrueWhenCounted)
-            {
-                if(incoming > 0 || outgoing > 0)
-                {
-                    BINFO << "HOGCounter: in (" << helper::to_string(incoming) << "), out (" << helper::to_string(outgoing) << ")";
-                    return true;
-                }
-            }
-            else
-            {
-                return true;
-            }
-        }
-        else
-        {
-            usleep(m_noMotionDelayTime*1000);
-        }
-
-        return false;
+//        int numberOfContours= 0;
+//        for(int i = 0; i < m_features.size(); i++)
+//        {
+//            int mostRecent = m_features[i].size() - 1;
+//            m_features[i][mostRecent].decreaseAppearance();
+//        }
+//
+//        // Find new tracks
+//        if(found_filtered.size() > 0)
+//        {
+//            for( int i = 0; i< found_filtered.size(); i++ )
+//            {
+////                cv::Moments moments = cv::moments(contours[i]);
+////                int x = moments.m10/moments.m00;
+////                int y = moments.m01/moments.m00;
+////                int area = cv::contourArea(contours[i]);
+//                cv::Point center_of_rect = (found_filtered[i].br() + found_filtered[i].tl())*0.5;
+//                int x = center_of_rect.x;
+//                int y = center_of_rect.y;
+//                int area = found_filtered[i].area();
+//
+//                if(area < m_minArea) continue;
+//
+//                Feature current(x, y, area, m_appearance);
+//                int best = -1;
+//                double bestValue = 99999999;
+//                double bestArea = 99999999;
+//
+//                for(int j = 0; j < m_features.size(); j++)
+//                {
+//                    int mostRecent = m_features[j].size() - 1;
+//                    double distance = current.distance(m_features[j][mostRecent]);
+//                    double areaDistance = current.areaDistance(m_features[j][mostRecent]);
+//
+//                    if(distance < m_maxDistance && distance < bestValue + m_maxDistance/2)
+//                    {
+//                        if(areaDistance < bestArea)
+//                        {
+//                            best = j;
+//                            bestValue = distance;
+//                        }
+//                    }
+//                }
+//
+//                if(best == -1)
+//                {
+//                    std::vector<Feature> tracking;
+//                    tracking.push_back(current);
+//                    m_features.push_back(tracking);
+//                }
+//                else
+//                {
+//                    m_features[best].push_back(current);
+//                }
+//
+//                numberOfContours++;
+//            }
+//        }
+//
+//        // Remove old tracks
+//        std::vector<std::vector<Feature> >::iterator it = m_features.begin();
+//        while(it != m_features.end())
+//        {
+//            Feature & back = it->back();
+//            back.decreaseAppearance();
+//
+//            if(back.getAppearance() < 0)
+//            {
+//                it = m_features.erase(it);
+//            }
+//            else
+//            {
+//                it++;
+//            }
+//        }
+//
+//        // Check existing tracks if they crossed the line
+//        LINFO << "Number of features in HOG: " << m_features.size();
+//        it = m_features.begin();
+//        while(it != m_features.end())
+//        {
+//            if(it->size() > 1)
+//            {
+//                for(int j = 1; j < it->size(); j++)
+//                {
+//                    cv::Point2f prev((*it)[j-1].getX(),(*it)[j-1].getY());
+//                    cv::Point2f curr((*it)[j].getX(),(*it)[j].getY());
+//                }
+//
+//                // Check if cross line
+//                cv::Point2f start((*it)[0].getX(),(*it)[0].getY());
+//                cv::Point2f end((*it)[it->size()-1].getX(),(*it)[it->size()-1].getY());
+//
+//                // Check if interset in line
+//                cv::Point2f intersectionPointOutgoing;
+//                bool inLine = false;
+//                if(intersection(start, end, outTop, outBottom, intersectionPointOutgoing))
+//                {
+//                    inLine = true;
+//                }
+//                // Check if interset out line
+//                cv::Point2f intersectionPointIncoming;
+//                bool outLine = false;
+//                if(intersection(start, end, inTop, inBottom, intersectionPointIncoming))
+//                {
+//                    outLine = true;
+//                }
+//
+//                // Check if interesected both
+//                Direction xDirection = parallell;
+//                Direction yDirection = parallell;
+//
+//                if(inLine && outLine)
+//                {
+//                    // What is the direction (incoming our outgoing?)
+//                    if(start.x - end.x < 0)
+//                    {
+//                        xDirection = right;
+//                    }
+//                    else if(start.x - end.x > 0)
+//                    {
+//                        xDirection = left;
+//                    }
+//                    if(start.y - end.y < 0)
+//                    {
+//                        yDirection = bottom;
+//                    }
+//                    else if(start.y - end.y > 0)
+//                    {
+//                        yDirection = top;
+//                    }
+//
+//                    // Check which intersection point comes first
+//                    if(xDirection != parallell)
+//                    {
+//                        if(xDirection == left)
+//                        {
+//                            // Check which intersection point is most right;
+//                            if(intersectionPointIncoming.x > intersectionPointOutgoing.x)
+//                            {
+//                                incoming++;
+//                            }
+//                            else
+//                            {
+//                                outgoing++;
+//                            }
+//                        }
+//                        else if(xDirection == right)
+//                        {
+//                            // Check which intersection point is most right;
+//                            if(intersectionPointIncoming.x < intersectionPointOutgoing.x)
+//                            {
+//                                incoming++;
+//                            }
+//                            else
+//                            {
+//                                outgoing++;
+//                            }
+//                        }
+//                    }
+//                    else
+//                    {
+//
+//                    }
+//
+//                    it = m_features.erase(it);
+//                }
+//                else
+//                {
+//                    it++;
+//                }
+//            }
+//            else
+//            {
+//                it++;
+//            }
+//        }
+//
+//        if(numberOfChanges >= m_minimumChanges)
+//        {
+//            JSON::AllocatorType& allocator = data.GetAllocator();
+//            data.AddMember("incoming", incoming, allocator);
+//            data.AddMember("outgoing", outgoing, allocator);
+//
+//            if(m_onlyTrueWhenCounted)
+//            {
+//                if(incoming > 0 || outgoing > 0)
+//                {
+//                    BINFO << "HOGCounter: in (" << helper::to_string(incoming) << "), out (" << helper::to_string(outgoing) << ")";
+//                    return true;
+//                }
+//            }
+//            else
+//            {
+//                return true;
+//            }
+//        }
+//        else
+//        {
+//            usleep(m_noMotionDelayTime*1000);
+//        }
+//
+//        return false;
     }
 }
