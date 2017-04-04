@@ -129,7 +129,6 @@ namespace kerberos
 //        data.AddMember("incoming", found_filtered.size(), allocator);
 //        data.AddMember("outgoing", found_filtered.size(), allocator);
 
-        return found_filtered.size() > 0;
 
 //        for (i=0; i<found_filtered.size(); i++)
 //        {

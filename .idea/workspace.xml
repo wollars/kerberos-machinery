@@ -51,8 +51,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df49c851-c8a2-48bd-9afc-be0de473afd8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kerberos/capture/Stream.cpp" afterPath="$PROJECT_DIR$/src/kerberos/capture/Stream.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kerberos/machinery/algorithm/BackgroundSubtraction.cpp" afterPath="$PROJECT_DIR$/src/kerberos/machinery/algorithm/BackgroundSubtraction.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp" afterPath="$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -82,8 +80,8 @@
       <file leaf-file-name="HOGCounter.cpp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4035">
-              <caret line="345" column="21" lean-forward="true" selection-start-line="345" selection-start-column="21" selection-end-line="345" selection-end-column="21" />
+            <state relative-caret-position="-2260">
+              <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
               <folding />
             </state>
           </provider>
@@ -926,12 +924,12 @@
       <workItem from="1490969157900" duration="5767000" />
       <workItem from="1491238232534" duration="1184000" />
       <workItem from="1491243024746" duration="3411000" />
-      <workItem from="1491249345117" duration="17020000" />
+      <workItem from="1491249345117" duration="17366000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31637000" />
+    <option name="totallyTimeSpent" value="31983000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1351,8 +1349,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4035">
-          <caret line="345" column="21" lean-forward="true" selection-start-line="345" selection-start-column="21" selection-end-line="345" selection-end-column="21" />
+        <state relative-caret-position="-2260">
+          <caret line="160" column="41" lean-forward="true" selection-start-line="160" selection-start-column="41" selection-end-line="160" selection-end-column="41" />
           <folding />
         </state>
       </provider>
