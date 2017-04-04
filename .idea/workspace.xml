@@ -51,8 +51,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df49c851-c8a2-48bd-9afc-be0de473afd8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kerberos/machinery/Machinery.cpp" afterPath="$PROJECT_DIR$/src/kerberos/machinery/Machinery.cpp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kerberos/machinery/algorithm/BackgroundSubtraction.cpp" afterPath="$PROJECT_DIR$/src/kerberos/machinery/algorithm/BackgroundSubtraction.cpp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp" afterPath="$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp" />
     </list>
     <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
@@ -69,21 +67,21 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="HOGCounter.cpp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp">
+      <file leaf-file-name="Counter.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/Counter.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="334">
-              <caret line="125" column="10" lean-forward="false" selection-start-line="125" selection-start-column="10" selection-end-line="133" selection-end-column="11" />
+            <state relative-caret-position="3975">
+              <caret line="265" column="28" lean-forward="false" selection-start-line="265" selection-start-column="28" selection-end-line="265" selection-end-column="28" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IPCamera.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/kerberos/capture/IPCamera.cpp">
+      <file leaf-file-name="HOGCounter.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="10" column="78" lean-forward="true" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="78" />
+            <state relative-caret-position="379">
+              <caret line="129" column="69" lean-forward="true" selection-start-line="129" selection-start-column="69" selection-end-line="129" selection-end-column="69" />
               <folding />
             </state>
           </provider>
@@ -104,8 +102,8 @@
       <file leaf-file-name="Machinery.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/Machinery.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="124" column="66" lean-forward="true" selection-start-line="124" selection-start-column="66" selection-end-line="124" selection-end-column="66" />
+            <state relative-caret-position="461">
+              <caret line="121" column="48" lean-forward="true" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
               <folding />
             </state>
           </provider>
@@ -177,7 +175,6 @@
     <findStrings>
       <find>Feature</find>
       <find>save</find>
-      <find>data</find>
       <find>intersection</find>
       <find>opencv</find>
       <find>highgui.hpp</find>
@@ -190,6 +187,7 @@
       <find>isValid</find>
       <find>m_appearance</find>
       <find>img</find>
+      <find>data</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -316,6 +314,32 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="machinery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kerberos" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="machinery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kerberos" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="machinery" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="heuristic" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -893,12 +917,12 @@
       <workItem from="1490969157900" duration="5767000" />
       <workItem from="1491238232534" duration="1184000" />
       <workItem from="1491243024746" duration="3411000" />
-      <workItem from="1491249345117" duration="14513000" />
+      <workItem from="1491249345117" duration="15721000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29130000" />
+    <option name="totallyTimeSpent" value="30338000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="873" extended-state="6" />
@@ -1202,14 +1226,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/Counter.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1410">
-          <caret line="94" column="9" lean-forward="false" selection-start-line="94" selection-start-column="9" selection-end-line="94" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/.gitignore">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="407">
@@ -1300,14 +1316,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/Machinery.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
-          <caret line="124" column="66" lean-forward="true" selection-start-line="124" selection-start-column="66" selection-end-line="124" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/include/kerberos/machinery/algorithm/BackgroundSubtraction.h">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="371">
@@ -1316,10 +1324,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/Machinery.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="461">
+          <caret line="121" column="48" lean-forward="true" selection-start-line="121" selection-start-column="48" selection-end-line="121" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/Counter.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3975">
+          <caret line="265" column="28" lean-forward="false" selection-start-line="265" selection-start-column="28" selection-end-line="265" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/kerberos/machinery/heuristic/HOGCounter.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="334">
-          <caret line="125" column="10" lean-forward="false" selection-start-line="125" selection-start-column="10" selection-end-line="133" selection-end-column="11" />
+        <state relative-caret-position="379">
+          <caret line="129" column="69" lean-forward="true" selection-start-line="129" selection-start-column="69" selection-end-line="129" selection-end-column="69" />
           <folding />
         </state>
       </provider>
